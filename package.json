@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "mechdeveloper-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A starter blog powered by Gatsby and Markdown",
   "version": "0.1.0",
   "author": "Ashish Singh Baghel <business.tech.asb@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/mechdeveloper/blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.18.4",
@@ -40,15 +40,16 @@
   "devDependencies": {
     "prettier": "^1.19.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/mechdeveloper/blog#readme",
   "keywords": [
-    "gatsby"
+    "mechdeveloper",
+    "tech"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/mechdeveloper/blog.git"
   },
   "scripts": {
     "build": "gatsby build",
