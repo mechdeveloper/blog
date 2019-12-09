@@ -12,6 +12,9 @@ git clone https://github.com/libgit2/libgit2
 
 ## git init
 initialize a git repository
+```
+git init
+```
 
 ## git status
 Checking the Status of Your Files
@@ -106,9 +109,6 @@ git remote rename pb paul
 To remove a remote use following command
 ```
 git remote remove paul
-```
-or 
-```
 git remote rm paul
 ```
 
@@ -123,6 +123,9 @@ git fetch origin
 
 ## git pull
 ```git pull``` command is used to automatically fetch and then merge the remote branch into your current branch. Running ```git pull``` generally fetches data from server you originally cloned from and automatically tries to merge it into the code you're currently working on.
+```
+git pull
+```
 
 ## git push
 Pushing to Your Remotes. push committed changes in local repository up to remote repository.
@@ -142,7 +145,7 @@ git tag
 git tag -l "v1.8.5*"
 ```
 
-Annoated Tags
+Annotated Tags
 ```
 git tag -a v1.4 -m "my version 1.4"
 ```
@@ -174,7 +177,8 @@ Deleting Tags
 ```
 git tag -d v1.4-lw
 ```
-to delete a remote tag
+
+To delete a remote tag
 ```
 git push origin --delete <tagname>
 ```
@@ -198,23 +202,23 @@ To see last commit on each branch
 git branch -v
 ```
 
-The useful ```--merged and --no-merged options can filter the list of branches that you have not yet merged into the branch you're currently on.
+The useful ```--merged``` and ```--no-merged``` options can filter the list of branches that you have not yet merged into the branch you're currently on.
 ```
 git branch --merged
 git branch --no-merged
 ```
 
-create a new branch 
+Create a new branch 
 ```
 git branch testing
 ```
 
-delete a branch
+Delete a branch
 ```
 git branch -d hotfix
 ```
 
-delete an unmerged branch or delete a branch and lose the work
+Delete an un-merged branch or delete a branch and lose the work
 ```
 git branch -D testing
 ```
@@ -231,7 +235,7 @@ git checkout -b <newbranchname>
 ```
 
 ## git merge
-merge branch
+merge branch to checked out branch
 ```
 git checkout master
 git merge hotfix
