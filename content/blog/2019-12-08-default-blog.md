@@ -241,4 +241,25 @@ git checkout master
 git merge hotfix
 ```
 
+## git rebase 
+to maintain topic branches
+```
+          A---B---C topic
+         /
+    D---E---F---G master
+```
+```
+git rebase master
+git rebase master topic
+```
+```
+                  A'--B'--C' topic
+                 /
+    D---E---F---G master
+```
+>NOTE: The latter form is just a short-hand of git checkout topic followed by git rebase master. When rebase exits topic will remain the checked-out branch.
 
+```undo git rebase with with```
+```
+git rebase --abort
+```
