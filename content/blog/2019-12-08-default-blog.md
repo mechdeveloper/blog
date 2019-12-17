@@ -3,10 +3,44 @@ title: Basic Git commands
 date: 2019-12-09T15:22:49.004Z
 description: basic commands to get started with git version control
 ---
+## git config
+### Your Identity
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+
+### Checking your settings
+```
+git config --list
+
+git config global --list
+git config system --list
+git config local --list
+```
+
+### Checking specific key's value
+```
+git config <key>
+git config user.name
+```
+
+## git help
+### Getting Help
+```
+git help <verb>
+git <verb> --help
+man git-<verb>
+
+git help config
+```
+
 ## git clone
 clone an existing git repository.
 ```
 git clone <remote-repository-url>
+git clone <remote-repository-url> <custom-folder-name>
+
 git clone https://github.com/libgit2/libgit2
 ```
 
@@ -59,6 +93,50 @@ Moving Files. To rename a file in Git, you can run
 ```
 git mv <file-from> <file-to>
 git mv README.md README
+```
+
+## Ignoring files
+.gitignore file
+
+The rules for the patterns you can put in the .gitignore file are as follows:
+-   Blank lines or lines starting with # are ignored.
+-   Standard glob patterns work.
+-   You can end patterns with a forward slash (/) to specify a directory.
+-   You can negate a pattern by starting it with an exclamation point (!).
+Glob patterns are like simplified regular expressions that shells use. 
+-	An asterisk (*) matches zero or more characters; 
+-	[abc] matches any character inside the brackets (in this case a, b, or c);
+-	a question mark (?) matches a single character; and 
+-	brackets enclosing characters separated by a hyphen([0-9]) matches any character in the range (in this case 0 through 9) .
+
+Here is an example .gitignore file:
+
+	# a comment - this is ignored
+	# no .a files
+	*.a
+	# but do track lib.a, even though you're ignoring .a files above
+	!lib.a
+	# only ignore the root TODO file, not subdir/TODO
+	/TODO
+	# ignore all files in the build/ directory
+	build/
+	# ignore doc/notes.txt, but not doc/server/arch.txt
+	doc/*.txt
+	# ignore all .txt files in the doc/ directory
+	doc/**/*.txt
+	A **/ pattern is available in Git since version 1.8.2.
+
+
+
+## View staged and unstaged changes
+### To see what you have changed but not yet staged
+```
+git diff 
+```
+
+### To see what you have staged that will go into your next commit
+```
+git diff --cached (or git diff --staged)
 ```
 
 ### git log
