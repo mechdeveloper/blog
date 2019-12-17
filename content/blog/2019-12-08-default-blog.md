@@ -339,7 +339,9 @@ git rebase master topic
 >NOTE: The latter form is just a short-hand of git checkout topic followed by git rebase master. When rebase exits topic will remain the checked-out branch.
 
 After resolving the conflict manually and updating the index with the desired resolution, you can continue the rebasing process with
-```git rebase --continue```
+```
+git rebase --continue
+```
 You can undo ```git rebase``` with
 ```
 git rebase --abort
