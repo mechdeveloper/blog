@@ -26,6 +26,15 @@ artillery quick --count 10 -n 20 https://artillery.io/
 ## Run a test script
 You write your load testing scripts and tell Artillery to run them. Scripts are written in YAML, with the option to write JavaScript to write custom logic.
 
+### Run a test script and generate report
+```
+artillery run -o <report_name>.json <test_file>.yml
+```
+### Convert the above generated report to HTML
+```
+artillery report <report_name>.json
+```
+
 ### Putting A Test Script Together 
 load testing scripts have two main parts - ```config``` and ````scenarios```
 ```config``` section
