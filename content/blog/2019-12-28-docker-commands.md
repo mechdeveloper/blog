@@ -5,47 +5,47 @@ description: List of common docker commands
 ---
 # Docker Commands
 
-### Check Docker Version
+1. Check Docker Version
 ```bash
 docker version
 ```
-### Check the detailed information
+2. Check the detailed information of Docker installed
 ```
 docker info
 ```
 
 ## Docker commands - Images
-### Search an image in Docker hub
+3. Search an image in Docker hub
 ```
 docker search <<imagename>> | head -20
 docker search ubuntu | head -20
 #  will search ubuntu images in the dockerhub and limit the search result to only 20 
 ```
-### Pull and Image from Docker hub
+4. Pull and Image from Docker hub
 ```
 docker pull <<imagename>>
 docker pull nginx
 ```
-### Check image history (layers in an image)
+5. Check image history (layers in an image)
 ```
 docker history <<imagename>>
 docker history nginx
 ```
-### Pull a specific version of an image
+6. Pull a specific version of an image
 ```
 docker pull <<imagename>>:<<versiontag>>
 docker pull busybox:1.24
 ```
-### Verify Downloaded docker images
+7. Verify Downloaded docker images
 ```
 docker images
 ```
-### Remove Docker images
+8. Remove Docker images
 ```
 docker rmi <<imagename>>
 docker rmi nginx
 ```
-### Dowload and run an image in docker container using run command
+9. Dowload and run an image in docker container using run command
 ```
 docker run <<imagename>>
 docker run --name cntnginx -d nginx
@@ -54,65 +54,65 @@ docker run --name cntnginx -d nginx
 ```
 
 ## Docker Commands - Containers
-### List running containers
+10. List running containers
 ```
 docker ps
 ```
-### List all containers (This includes containers in all state)
+11. List all containers (This includes containers in all state)
 ```
 docker ps -a
 ```
-### Inspect container object
+12. Inspect container object
 ```
 docker inspect <<containername/containerid>>
 docker inspect cntnginx
 ```
-### Print the stats for a running container 
+13. Print the stats for a running container 
 ```
 docker stats <<containername/containerid>>
 docker stats cntnginx
 ```
-### Pause a running container
+14. Pause a running container
 ```
 docker pause <<containername/containerid>>
 docker pause cntnginx
 ```
-### Unpause a paused container
+15. Unpause a paused container
 ```
 docker unpause <<containername/containerid>>
 docker unpause cntnginx
 ```
-### Kill a running container
+16. Kill a running container
 ```
 docker kill <<containername/containerid>>
 docker kill cntnginx
 ```
-### Start a killed container
+17. Start a killed container
 ```
 docker start <<containername/containerid>>
 docker start cntnginx
 ```
-### Stop a running container
+18. Stop a running container
 ```
 docker stop <<containername/containerid>>
 docker stop cntnginx
 ```
-### Delete a container
+19. Delete a container
 ```
 docker rm <<containername/containerid>>
 docker rm cntnginx
 ```
-### To remove all stopped containers
+20. To remove all stopped containers
 ```
 docker container prune
 ```
-### Export a container as an image (.tar file)
+21. Export a container as an image (.tar file)
 ```
 docker export <<containername/contianerid>> > <<filename>>.tar
 docker run --name newnginxcontainer -d nginx
 docker export newnginxcontainer > test.tar
 ```
-### Import an exported container image (.tar file)
+22. Import an exported container image (.tar file)
 ```
 docker import <<remoteurl/imagename.tar>>
 docker import test.tar
