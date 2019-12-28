@@ -3,6 +3,8 @@ title: Basic Git commands
 date: 2019-12-09T15:22:49.004Z
 description: basic commands to get started with git version control
 ---
+# Basic git commands
+
 ## git config
 ### Your Identity
 ```
@@ -19,14 +21,14 @@ git config system --list
 git config local --list
 ```
 
-### Checking specific key's value
+### Checking specific key's value in your config settings
 ```
 git config <key>
 git config user.name
 ```
 
-## git help
-### Getting Help
+## 1. git help
+Getting Help
 ```
 git help <verb>
 git <verb> --help
@@ -35,7 +37,7 @@ man git-<verb>
 git help config
 ```
 
-## git clone
+## 2. git clone
 clone an existing git repository.
 ```
 git clone <remote-repository-url>
@@ -44,13 +46,13 @@ git clone <remote-repository-url> <custom-folder-name>
 git clone https://github.com/libgit2/libgit2
 ```
 
-## git init
+## 3. git init
 initialize a git repository
 ```
 git init
 ```
 
-## git status
+## 4. git status
 Checking the Status of Your Files
 ```
 git status
@@ -59,7 +61,7 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
 
-## git add 
+## 5. git add 
 Tracking New Files or Staging Modified files
 ```
 git add <file-name>
@@ -70,7 +72,7 @@ To stage all modified files / track all new files
 git add .
 ```
 
-## git commit
+## 6. git commit
 commit your changes to git repository
 ```
 git commit -m "Story 182: Fix benchmarks for speed"
@@ -81,21 +83,21 @@ Skip staging area by using ```-a``` option to the ```git commit``` command, this
 git commit -a -m 'added new benchmarks'
 ```
 
-## git rm
+## 7. git rm
 Removing Files from Git. ```git rm``` removes file from working directory
 ```
 git rm <file-name>
 git rm PROJECTS.md
 ```
 
-## git mv
+## 8. git mv
 Moving Files. To rename a file in Git, you can run
 ```
 git mv <file-from> <file-to>
 git mv README.md README
 ```
 
-## Ignoring files
+## Ignoring files in git repository
 .gitignore file
 
 The rules for the patterns you can put in the .gitignore file are as follows:
@@ -126,20 +128,18 @@ Here is an example .gitignore file:
 	doc/**/*.txt
 	A **/ pattern is available in Git since version 1.8.2.
 
-
-
-## View staged and unstaged changes
-### To see what you have changed but not yet staged
+## 9. git diff
+To see what you have changed but not yet staged
 ```
 git diff 
 ```
 
-### To see what you have staged that will go into your next commit
+To see what you have staged that will go into your next commit
 ```
 git diff --cached (or git diff --staged)
 ```
 
-### git log
+## 10. git log
 Viewing the Commit History.
 ```
 git log
@@ -152,7 +152,7 @@ git log --since=2.weeks
 git log --oneline --decorate --graph --all
 ```
 
-## git remote 
+## 11. git remote 
 Working with Remotes. Manage remote repositories.
 
 Showing Your Remotes. 
@@ -192,7 +192,7 @@ git remote rm paul
 ```
 
 
-## git fetch
+## 12. git fetch
 Fetching and Pulling from Your Remotes. To get data from your remote project you can run 
 ```
 git fetch <remote>
@@ -200,13 +200,13 @@ git fetch origin
 ```
 >Note: ```git fetch``` command only downloads the data to your local repository - it doesn't automatically merge it with any of your work or modify what you're currently working on. You have to merge it manually into your work when you're ready.
 
-## git pull
+## 13. git pull
 ```git pull``` command is used to automatically fetch and then merge the remote branch into your current branch. Running ```git pull``` generally fetches data from server you originally cloned from and automatically tries to merge it into the code you're currently working on.
 ```
 git pull
 ```
 
-## git push
+## 14. git push
 Pushing to Your Remotes. push committed changes in local repository up to remote repository.
 ```
 git push
@@ -214,7 +214,7 @@ git push <remote> <branch>
 git push origin master
 ```
 
-## git tag
+## 15. git tag
 Tagging.
 
 Listing Your Tags. 
@@ -268,7 +268,7 @@ git checkout v2.0.0
 git checkout -b version2 v2.0.0
 ```
 
-## git branch
+## 16. git branch
 Branch Management.
 
 List your current branches
@@ -302,7 +302,7 @@ Delete an un-merged branch or delete a branch and lose the work
 git branch -D testing
 ```
 
-## git checkout
+## 17. git checkout
 Switching Branches
 ```
 git checkout testing
@@ -313,14 +313,14 @@ Creating a new branch and switching to it at the same time
 git checkout -b <newbranchname>
 ```
 
-## git merge
+## 18. git merge
 merge branch to checked out branch
 ```
 git checkout master
 git merge hotfix
 ```
 
-## git rebase 
+## 19. git rebase 
 to maintain topic branches
 ```
           A---B---C topic
