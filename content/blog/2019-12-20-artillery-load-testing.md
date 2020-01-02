@@ -23,6 +23,8 @@ You can try ```artillery dino``` too.
 artillery quick --count 10 -n 20 https://artillery.io/
 ```
 
+```artillery quick``` is used for ad-hoc testing. Above command will create 10 virutal users each of which will send 20 HTTP requests to https://artillery.io/. use -k to ignore certificate errors. -o <output-filename>.json to extract test results in JSON file.
+
 ## Run a test script
 You write your load testing scripts and tell Artillery to run them. Scripts are written in YAML, with the option to write JavaScript to write custom logic.
 
