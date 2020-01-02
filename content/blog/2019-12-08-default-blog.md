@@ -214,6 +214,11 @@ git push <remote> <branch>
 git push origin master
 ```
 
+Push a new local branch to a remote git repository and track it too
+```
+git push -u origin feature_branch_name
+```
+
 ## 15. git tag
 Tagging.
 
