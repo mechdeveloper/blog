@@ -38,14 +38,15 @@ artillery report <report_name>.json
 ```
 
 ### Putting A Test Script Together 
-load testing scripts have two main parts - ```config``` and ````scenarios```
+load testing scripts have two main parts - ```config``` and ```scenarios```
+
 ```config``` section
 - specify __target__ (such as address of the API server under test)
 - __load progression__ (telling artillery for eg. to create 20 virtual users every second for 10 minutes)
 - can set a variety of other options such as HTTP timeout settings, or TLS settings
 
 ```scenarios``` section
-here you define what virtual users created by Artillery will be doing
+- here you define what virtual users created by Artillery will be doing
 
 Copy following code into a ```test.yml``` file:
 ```
