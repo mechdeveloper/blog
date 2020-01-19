@@ -7,6 +7,11 @@ description: >-
 ---
 # Global Diversity CFP Day
 
+## What is CFP?
+
+* A lot of conferences will require you to submit a Call for Papers, or CFP.
+* Usually CFP is just a paragraph or two for your talk abstract, a paragraph or two directly to the conference organizers, and then maybe special things like your Social Media Network handle.
+
 ## What to Speak about?
 
 * Start Simple
@@ -70,7 +75,7 @@ description: >-
   * What you present is your property, you own it
   * Title slide sets the moods
 
-## Services 
+## Services
 
 * conference use this for gathering proposals 
 * Finetune abstract before submitting
@@ -79,7 +84,7 @@ description: >-
   * has an event directory
 * speakerdeck.com 
 * Books
-  Ted Talks
+  * Ted Talks
 * Conferences
   * confs.tech
     * probably the best
@@ -97,3 +102,8 @@ description: >-
   * Hack your way to zavazone 
     * 2020.javazone.no 
     * JavaZone meetups
+
+## References:
+
+* <https://speaking.io/plan/writing-a-cfp/>
+* <https://www.globaldiversitycfpday.com/>
