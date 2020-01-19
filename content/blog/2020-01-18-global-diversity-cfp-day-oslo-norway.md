@@ -7,6 +7,8 @@ description: >-
 ---
 # Global Diversity CFP Day
 
+![Global Diversity CFP Day Oslo Norway](/img/globaldiversitrycfpday.jpg "Global Diversity CFP Day")
+
 ## What is CFP?
 
 * A lot of conferences will require you to submit a Call for Papers, or CFP.
