@@ -1,7 +1,11 @@
 ---
-title: 'Microsoft: AZ-900 | Microsoft Azure Fundamentals'
+title: >-
+  Microsoft: AZ-900 | Microsoft Azure Fundamentals | Cloud Concepts | Module 1
+  of 4
 date: 2020-02-06T22:15:18.623Z
-description: 'Microsoft: AZ-900 | Microsoft Azure Fundamentals course'
+description: >-
+  Microsoft: AZ-900 | Microsoft Azure Fundamentals | Cloud Concepts | Module 1
+  of 4
 ---
 # Microsoft Azure Fundamentals
 
@@ -139,6 +143,8 @@ This consumption-based model brings with it many benefits, including:
 - No need to purchase and manage costly infrastructure that they may or may not use to its fullest
 - The ability to pay for additional resources if and when they are needed
 - The ability to stop paying for resources that are no longer needed
+
+
 
 ### Lesson 3 - Types of Cloud models
 
@@ -280,6 +286,9 @@ Below is an outline of some of the advantages and disadvantages for public, priv
   - **Skills.** Deep technical skills are still required to be able to set up a private cloud.
   - **Ease of management.** Organizations need to ensure there are clear guidelines to avoid confusion, complications or misuse.
 
+
+
+
 ### Lesson 4 - Types of Cloud Services
 
 #### Infrastructure-as-a-Service (IaaS)
@@ -409,6 +418,8 @@ The following list of cloud service types describes the management responsibilit
 - SaaS requires the least amount of management. The cloud provider is responsible for managing everything, and the end user just uses the software.
 
 Note: It is important that users understand what they are responsible for, when using cloud services, to ensure their workloads are managed correctly and don't suffer any down time. There is a shared responsibility model for ensuring cloud workloads are run securely and in a well-managed way. Depending on the service you are using: the cloud provider is responsible for some aspects of the workload management, and the end user is responsible for other aspects of the workload management.
+
+
 
 ### Lesson 5 - Module 1 Review Questions
 
