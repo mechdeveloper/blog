@@ -1,5 +1,5 @@
 ---
-title: WSL | Windows Subsystem for Linux
+title: 'WSL2 | Windows Subsystem for Linux 2 | Linux Kernel in Windows '
 date: 2020-03-18T21:34:32.562Z
 description: 'Winows Subsystem for Linux, Deep Dive'
 ---
