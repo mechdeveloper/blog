@@ -302,6 +302,13 @@ Delete a branch
 git branch -d hotfix
 ```
 
+Delete a branch from remote repo
+```
+git branch -a
+git push origin --delete hotfix
+```
+
+
 Delete an un-merged branch or delete a branch and lose the work
 ```
 git branch -D testing
