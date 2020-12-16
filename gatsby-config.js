@@ -3,7 +3,7 @@ module.exports = {
     title: `mechdeveloper's Blog`,
     author: `Ashish Singh Baghel`,
     description: `A starter blog by Ashish Singh Baghel`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://blog.techhackswithash.com/`,
     social: {
       twitter: `mechDeveloper1`,
     },
