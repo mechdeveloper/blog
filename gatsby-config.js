@@ -15,6 +15,7 @@ module.exports = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "G-T71K072LJX", // Google Analytics / GA
+          "G-XZLM68XSBV", // Google Analytics / GA
           "AW-CONVERSION_ID", // Google Ads / Adwords / AW
           "DC-FLOODIGHT_ID", // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
