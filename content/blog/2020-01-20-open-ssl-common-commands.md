@@ -1,5 +1,5 @@
 ---
-title: Open SSL | Common Commands
+title: OpenSSL | Common Commands
 date: 2020-01-20T13:04:44.548Z
 description: Common openssl commands
 ---
