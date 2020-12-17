@@ -1,11 +1,15 @@
 ---
 title: Basic Kubernetes (K8s) Commands | Minikube | Pods | Services
 date: 2020-03-02T21:47:16.593Z
-description: 'Basic Kubernetes (K8s) Commands '
+description: "Basic Kubernetes (K8s) Commands "
 ---
 # Kubernetes Basics
 
-Using minikube to create a single node cluster
+Using [minikube](https://minikube.sigs.k8s.io/docs/start/) to create a single node cluster
+
+![minikube cli screenshot](/img/minikube_cli.png "minikube cli")
+
+
 
 ## Check if minikube is installed
 
@@ -37,7 +41,7 @@ kubectl cluster-info
 kubectl get nodes
 ```
 
-## Deploy an app 
+## Deploy an app
 
 ```bash
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
@@ -83,7 +87,7 @@ kubectl exec $POD_NAME env
 kubectl exec -ti $POD_NAME bash
 ```
 
-To close your container connection type ```exit```.
+To close your container connection type `exit`.
 
 ## List current services from your cluster
 
