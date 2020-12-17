@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `mechdeveloper's Blog`,
+    title: `Ashish Singh Baghel's Blog`,
     author: `Ashish Singh Baghel`,
-    description: `A starter blog by Ashish Singh Baghel`,
+    description: `Technical blogs by Ashish Singh Baghel`,
     siteUrl: `https://blog.techhackswithash.com/`,
     social: {
       twitter: `mechDeveloper1`,
