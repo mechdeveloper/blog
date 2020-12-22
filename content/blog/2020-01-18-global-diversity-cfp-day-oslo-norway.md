@@ -1,9 +1,8 @@
 ---
-title: Global Diversity CFP Day | Oslo Norway
+title: Global Diversity CFP Day (Jan 2020) | Oslo Norway
 date: 2020-01-18T16:27:54.016Z
-description: >-
-  I attended the https://www.globaldiversitycfpday.com/ in Oslo Norway. This
-  blog has my personal takeaway points from the workshop.
+description: I attended the https://www.globaldiversitycfpday.com/ in Oslo
+  Norway. This blog has my personal takeaway points from the workshop.
 ---
 # Global Diversity CFP Day
 
