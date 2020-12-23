@@ -23,6 +23,16 @@ minikube version
 minikube start
 ```
 
+```bash
+minikube status
+```
+
+minikube can download the appropriate version of kubectl
+
+```bash
+minikube kubectl -- get pods -A
+```
+
 ## Check if kubectl is installed
 
 ```bash
