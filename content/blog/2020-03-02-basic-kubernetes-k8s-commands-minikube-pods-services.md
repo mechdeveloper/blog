@@ -123,6 +123,12 @@ kubectl describe services/kubernetes-bootcamp
 curl $(minikube ip):$NODE_PORT
 ```
 
+Note: You can also run following command to check your deployment 
+minikube will start the tunnel for your service and open it in default browser...
+```bash
+minikube service kubernetes-bootcamp
+```
+
 ## Query list of pods using label
 
 ```bash
@@ -175,4 +181,9 @@ kubectl rollout status deployments/kubernetes-bootcamp
 
 ```bash
 kubectl rollout undo deployments/kubernetes-bootcamp
+```
+
+## Delete a deployment 
+```bash
+kubectl delete deployment kubernetes-bootcamp
 ```
