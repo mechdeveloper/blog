@@ -184,11 +184,13 @@ kubectl rollout undo deployments/kubernetes-bootcamp
 ```
 
 ## Delete a deployment 
+
 ```bash
 kubectl delete deployment kubernetes-bootcamp
 ```
 
 ## Stop minikube
+
 ```bash
 minikube stop
 ```
