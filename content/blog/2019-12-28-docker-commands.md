@@ -164,6 +164,9 @@ docker container prune
 docker export <<containername/contianerid>> > <<filename>>.tar
 docker run --name newnginxcontainer -d nginx
 docker export newnginxcontainer -o test.tar
+
+# Note: You must have permissions on the folder where you are saving the test.tar
+# use `chmod 777 ./` for permissions in case if you are facing an permission denied error.
 ```
 
 22. Import an exported container image (.tar file)
