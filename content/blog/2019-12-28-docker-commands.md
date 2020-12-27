@@ -161,7 +161,7 @@ docker container prune
 21. Export a container as an image (.tar file)
 
 ```
-docker export <<containername/contianerid>> > <<filename>>.tar
+docker export <<containername/contianerid>> -o <<filename>>.tar
 docker run --name newnginxcontainer -d nginx
 docker export newnginxcontainer -o test.tar
 
