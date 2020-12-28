@@ -8,9 +8,9 @@ description: List of common docker commands for getting started with docker on
 
 # Docker Commands
 
-I have a demo for these commands in the YouTube video 
+Demo for these commands is available in the following YouTube video 
 
-<https://www.youtube.com/embed/o5kMU9ykFKY>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/o5kMU9ykFKY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 1. Check Docker Version
 
