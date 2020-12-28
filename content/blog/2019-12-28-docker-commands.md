@@ -8,6 +8,10 @@ description: List of common docker commands for getting started with docker on
 
 # Docker Commands
 
+I have a demo for these commands in the YouTube video 
+
+<https://www.youtube.com/embed/o5kMU9ykFKY>
+
 1. Check Docker Version
 
 ```bash
@@ -35,7 +39,8 @@ docker search ubuntu | head -20
 ```
 
 Note: head command works on bash terminal, for PowerShell terminal in windows use `select -first 10`
-```PowerShell 
+
+```PowerShell
 docker search ubuntu | select -first 10
 ```
 
