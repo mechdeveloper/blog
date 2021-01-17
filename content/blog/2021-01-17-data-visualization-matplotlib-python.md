@@ -570,6 +570,152 @@ ax.set_yticklabels(['setosa', 'versicolor', 'viriginica'])
 plt.show()
 ```
 
+## Histogram Using 'hist'
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 60 + 10*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Distribution of Student's Percentage",
+      ylabel='Count', xlabel='Percentage')
+ax.hist(x)
+plt.show()
+```
+
+### Common Parameters of 'hist'
+
+- `color`: Sets the color of bars.
+- `bins`: Sets the number of bins to be used.
+- `normed`: Sets to `True` where bins display fraction and not the count.
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 60 + 10*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Distribution of Student's Percentage",
+      ylabel='Proportion', xlabel='Percentage')
+ax.hist(x, color='blue', bins=30, normed=True)
+plt.show()
+```
+
+## Boxplot Using 'boxplot'
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 50 + 10*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Box plot of Student's Percentage",
+      xlabel='Class', ylabel='Percentage')
+ax.boxplot(x)
+plt.show()
+```
+
+### Common Parameters of 'boxplot'
+
+- `labels`: Sets the labels for box plots.
+- `notch`: Sets to `True` if notches need to be created around the median.
+- `bootstrap`: Number set to indicate that notches around the median are bootstrapped.
+- `vert`: Sets to `False` for plotting Box plots horizontally.
+
+- Box plot of Student Percentages can be redrawn by setting `notch`, `bootstrap` and `labels` using the below-shown expression.
+
+```py
+ax.boxplot(x, labels=['A'], notch=True, bootstrap=10000)
+```
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 50 + 10*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Box plot of Student's Percentage",
+      xlabel='Class', ylabel='Percentage')
+ax.boxplot(x, labels=['A'], notch=True, bootstrap=10000)
+plt.show()
+```
+
+## Multiple boxplots
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 50 + 10*np.random.randn(1000)
+y = 70 + 25*np.random.randn(1000)
+z = 30 + 5*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Box plot of Student's Percentage",
+      xlabel='Class', ylabel='Percentage')
+ax.boxplot([x, y, z], labels=['A', 'B', 'C'], notch=True, bootstrap=10000)
+plt.show()
+```
+
+## Horizontal boxplots
+
+```py
+import numpy as np
+np.random.seed(100)
+x = 50 + 10*np.random.randn(1000)
+y = 70 + 25*np.random.randn(1000)
+z = 30 + 5*np.random.randn(1000)
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title="Box plot of Student's Percentage",
+      xlabel='Percentage', ylabel='Class')
+ax.boxplot([x, y, z], labels=['A', 'B', 'C'], vert=False, notch=True, bootstrap=10000)
+plt.show()
+```
+
+## Histogram normal distribution
+
+```py
+import numpy as np
+
+
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+
+np.random.seed(100)
+x1 = 25 + 3.0*np.random.randn(1000)
+
+# x, color='blue', bins=30, normed=True
+ax.hist(x1, bins=30)
+ax.set(title="Histogram of a Single Dataset",
+      ylabel='Bin Count', xlabel='X1')
+
+plt.show()
+```
+
+## Box Plot of 4 normal distributions
+
+```py
+import numpy as np
+
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+
+np.random.seed(100)
+x1 = 25 + 3.0*np.random.randn(1000)
+x2 = 35 + 5.0*np.random.randn(1000)
+x3 = 55 + 10.0*np.random.randn(1000)
+x4 = 45 + 3.0*np.random.randn(1000)
+
+labels = ['X1', 'X2', 'X3', 'X4']
+ax.boxplot([x1, x2, x3, x4], labels=labels, notch=True, patch_artist=True, sym='+')
+
+ax.set(title="Box plot of Multiple Datasets",
+      xlabel='Dataset', ylabel='Value')
+          
+plt.show()
+```
+
 
 # References
 - matplotib website: <https://matplotlib.org/>
