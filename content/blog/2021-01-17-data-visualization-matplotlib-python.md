@@ -844,7 +844,7 @@ mpl.rcParams['lines.linewidth'] = 2
 mpl.rcParams['lines.color'] = 'r'
 ```
 
-### Generate plot with styple
+### Generate plot with style
 
 ```py
 with plt.style.context('ggplot'):
@@ -948,7 +948,249 @@ with plt.style.context('grayscale'):
     plt.show()
 ```
 
+## Creating Suplots
 
+```py
+subplot(nrows, ncols, index)
+# 'index' is the position in a virtual grid with 'nrows' and 'ncols'
+# 'index' number varies from 1 to `nrows*ncols`.
+```
+
+- subplot creates the Axes object at index position and returns it.
+
+```py
+fig = plt.figure(figsize=(10,8))
+axes1 = plt.subplot(2, 2, 1, title='Plot1')
+axes2 = plt.subplot(2, 2, 2, title='Plot2')
+axes3 = plt.subplot(2, 2, 3, title='Plot3')
+axes4 = plt.subplot(2, 2, 4, title='Plot4')
+plt.show()
+```
+
+- The above shown code creates a figure with four subplots, having two rows and two columns.
+- The third argument, `index` value varied from `1 to 4`, and respective subplots are drawn in `row-major order`.
+
+- create a figure with `three` subplots, where the first subplot spans all columns of first row
+
+```py
+fig = plt.figure(figsize=(10,8))
+
+axes1 = plt.subplot(2, 2, (1,2), title='Plot1')
+axes1.set_xticks([]); axes1.set_yticks([])
+
+axes2 = plt.subplot(2, 2, 3, title='Plot2')
+axes2.set_xticks([]); axes2.set_yticks([])
+
+axes3 = plt.subplot(2, 2, 4, title='Plot3')
+axes3.set_xticks([]); axes3.set_yticks([])
+
+plt.show()
+```
+
+## Subplots Using 'GridSpec'
+
+- `GridSpec` class of `matplotlib.gridspec` can also be used to create Subplots.
+- Initially, a grid with given number of rows and columns is set up.
+- Later while creating a subplot, the number of rows and columns of grid, spanned by the subplot are provided as inputs to `subplot` function.
+
+```py
+import matplotlib.gridspec as gridspec
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(10,8))
+gd = gridspec.GridSpec(2,2)
+
+axes1 = plt.subplot(gd[0,:],title='Plot1')
+axes1.set_xticks([]); axes1.set_yticks([])
+axes2 = plt.subplot(gd[1,0])
+axes2.set_xticks([]); axes2.set_yticks([])
+axes3 = plt.subplot(gd[1,-1])
+axes3.set_xticks([]); axes3.set_yticks([])
+
+plt.show()
+```
+
+### Creating a Complex Layout
+
+```py
+fig = plt.figure(figsize=(12,10))
+gd = gridspec.GridSpec(3,3)
+
+axes1 = plt.subplot(gd[0,:],title='Plot1')
+axes1.set_xticks([]); axes1.set_yticks([])
+
+axes2 = plt.subplot(gd[1,:-1], title='Plot2')
+axes2.set_xticks([]); axes2.set_yticks([])
+
+axes3 = plt.subplot(gd[1:, 2], title='Plot3')
+axes3.set_xticks([]); axes3.set_yticks([])
+
+axes4 = plt.subplot(gd[2, :-1], title='Plot4')
+axes4.set_xticks([]); axes4.set_yticks([])
+
+plt.show()
+```
+
+## Create multiple plots
+
+```py
+import numpy as np
+
+t = np.arange(0.0, 5.0, 0.01)
+s1 = np.sin(2*np.pi*t)
+s2 = np.sin(4*np.pi*t)
+
+fig = plt.figure(figsize=(8,6))
+axes1 = plt.subplot(2, 1, 1, title='Sin(2*pi*x)')
+axes1.plot(t, s1)
+
+axes2 = plt.subplot(2, 1, 2, title='Sin(4*pi*x)', sharex=axes1, sharey=axes1)
+axes2.plot(t, s2)
+
+plt.show()
+```
+
+```py
+import numpy as np
+
+
+np.random.seed(1000)
+x = np.random.rand(10)
+y = np.random.rand(10)
+z = np.sqrt(x**2 + y**2)
+
+fig = plt.figure(figsize=(8,6))
+axes1 = plt.subplot(2, 2, 1, title='Scatter plot with Upper Traingle Markers')
+axes1.scatter(x,y, s=80, c=z, marker='^')
+axes1.set_xticks([0.0, 0.4, 0.8, 1.2])
+axes1.set_yticks([-0.2, 0.2, 0.6, 1.0])
+
+axes2 = plt.subplot(2, 2, 2, title='Scatter plot with Plus Markers')
+axes2.scatter(x, y, s=80, c=z, marker='+')
+axes2.set_xticks([0.0, 0.4, 0.8, 1.2])
+axes2.set_yticks([-0.2, 0.2, 0.6, 1.0])
+
+axes3 = plt.subplot(2, 2, 3, title='Scatter plot with Circle Markers')
+axes3.scatter(x, y, s=80, c=z, marker='o')
+axes3.set_xticks([0.0, 0.4, 0.8, 1.2])
+axes3.set_yticks([-0.2, 0.2, 0.6, 1.0])
+
+axes4 = plt.subplot(2, 2, 4, title='Scatter plot with Diamond Markers')
+axes4.scatter(x, y, s=80, c=z, marker='d')
+axes4.set_xticks([0.0, 0.4, 0.8, 1.2])
+axes4.set_yticks([-0.2, 0.2, 0.6, 1.0])
+
+plt.tight_layout()
+
+
+plt.show()
+```
+
+```py
+import numpy as np
+import matplotlib.gridspec as gridspec
+import matplotlib.pyplot as plt
+
+x = np.arange(1, 101)
+y1 = x
+y2 = x**2
+y3 = x**3
+
+fig = plt.figure(figsize=(8,6))
+g = gridspec.GridSpec(2,2)
+
+axes1 = plt.subplot(g[0,0], title='y = x')
+axes1.plot(x, y1)
+
+axes2 = plt.subplot(g[1,0], title='y = x**2')
+axes2.plot(x, y2)
+
+axes3 = plt.subplot(g[:,1], title='y = x**3')
+axes3.plot(x, y3)
+
+plt.tight_layout()
+
+plt.show()
+```
+
+### Adding text
+
+- Text can be added to any part of the figure using `text` function.
+
+#### Syntax
+
+```py
+text(x, y, s)
+# 'x', 'y' represent x and y coordinates of a position.
+# 's' is the text or string to be written
+```
+
+- Example of adding text
+
+```py
+
+fig = plt.figure(figsize=(8,6))
+
+ax = fig.add_subplot(111)
+
+ax.set(title='Writing Text',
+      xlabel='X-Axis', ylabel='Y-Axis',
+      xlim=(0, 5), ylim=(0, 9))
+
+x = [1, 2, 3, 4]
+y = [2, 4, 6, 8]
+
+ax.scatter(x, y, c=['green'], s=[60], edgecolor='black')
+
+for i in range(len(x)):
+    str_temp = '({}, {})'.format(x[i] - 0.2, y[i] + 0.4)
+    ax.text(x[i] - 0.4, y[i] + 0.4, str_temp, fontsize=16)
+
+plt.show()
+
+```
+
+## Matplotlib Backend
+
+- `matplotlib` can generate plots in different outputs.
+- In general, `backend` refers to everything that occurs from the time of executing a plotting code to generating the figure.
+- Backends are of two types.
+  - `interactive backends`: Graphical user interfaces like PyGTK, wxPython, Tkinter, qt4, etc.
+  - `non-interactive backends`: Image files such as PNG, JPEG, etc.
+
+### Choosing a Backend
+
+- The default backend chosen by matplotlib is available as `backend` setting in `matplotlibrc` file.
+- If you want to alter the backend of many figures, change the value of `backend` setting.
+- The below expression chooses `WXAgg` backend.
+
+    ```py
+    backend : WXAgg
+    ```
+
+- You can also use `use` method if you want to go with a specific backend.
+
+    ```py
+    import matplotlib
+    matplotlib.use('WXAgg') 
+    # Above expression must be used before importing pylot
+    ```
+
+### Saving Figures
+
+- Once a backend is chosen, a matplotlib figure can be saved in any format supported by it.
+- The below shown example saves the plot in png format.
+
+```py
+fig = plt.figure(figsize(8,6))
+ax = fig.add_subplot(111)
+ax.set(title='My First Plot',
+      xlabel='X-Axis', ylabel='Y-Axis',
+      xlim=(0, 5), ylim=(0,10))
+x = [1, 2, 3, 4]; y = [2, 4, 6, 8]
+plt.plot(x, y)
+plt.figsave('myplot.png')
+```
 
 # References
 - matplotib website: <https://matplotlib.org/>
