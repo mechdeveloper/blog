@@ -716,6 +716,239 @@ ax.set(title="Box plot of Multiple Datasets",
 plt.show()
 ```
 
+## Matplotlib Styles
+
+- `matplotlib.pyplot` comes with a lot of styles. Based on the chosen style, the display of figure changes.
+- You can view various styles available in `pyplot` by running the following commands.
+
+```py
+import matplotlib.pyplot as plt
+print(plt.style.available)
+```
+
+Output:
+
+```console
+['bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark-palette', 'seaborn-dark', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'seaborn', 'Solarize_Light2', 'tableau-colorblind10', '_classic_test']
+```
+
+### Using a Style
+
+- A specific style can be invoked with either of the two expressions shown below.
+
+    ```plt.style.use('ggplot')```
+
+    or
+
+    ```plt.style.context('ggplot')```
+
+- Using the later expression with a keyword, `with` is recommended.
+
+### Matplotlib `ggplot` style
+
+```py
+with plt.style.context('ggplot'):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    ax.set(title='Avg. Daily Temperature of Jan 2018',
+      xlabel='Day', ylabel='Temperature (in deg)',
+      xlim=(0, 30), ylim=(25, 35))
+    days = [1, 5, 8, 12, 15, 19, 22, 26, 29]
+    temp = [29.3, 30.1, 30.4, 31.5, 32.3, 32.6, 31.8, 32.4, 32.7]
+    ax.plot(days, temp, color='green', linestyle='--', linewidth=3)
+    plt.show()
+```
+
+### Composing Styles
+
+- Multiple style sheets can be used together in `matplotlib`.
+
+```py
+with plt.style.context(['dark_background', 'seaborn-poster']):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    ax.set(title='Avg. Daily Temperature of Jan 2018',
+      xlabel='Day', ylabel='Temperature (in deg)',
+      xlim=(0, 30), ylim=(25, 35))
+    days = [1, 5, 8, 12, 15, 19, 22, 26, 29]
+    temp = [29.3, 30.1, 30.4, 31.5, 32.3, 32.6, 31.8, 32.4, 32.7]
+    ax.plot(days, temp, color='green', linestyle='--', linewidth=3)
+    plt.show()
+```
+
+### Creating a Custom Style
+
+- A style sheet is a text file having extension `.mplstyle`.
+- All custom style sheets are placed in a folder, `stylelib`, present in the config directory of `matplotlib`.
+- Use the below expression for knowing the Config folder.
+
+```py
+import matplotlib
+print(matplotlib.get_configdir())
+```
+
+- Now, create a file `mystyle.mplstyle` with the below-shown contents and save it in the folder `<matplotlib_configdir/stylelib/`.
+
+```mplstyle
+axes.titlesize : 24
+axes.labelsize : 20
+lines.linewidth : 8
+lines.markersize : 10
+xtick.labelsize : 16
+ytick.labelsize : 16
+```
+
+- Reload the matplotlib library with the subsequent expression.
+
+```py
+matplotlib.style.reload_library()
+```
+
+- A custom style can also be used similar to builtin styles, after reloading the style library.
+- use `mystyle` along with `dark_background`.
+
+```py
+with plt.style.context(['dark_background', 'mystyle']):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    ax.set(title='Avg. Daily Temperature of Jan 2018',
+      xlabel='Day', ylabel='Temperature (in deg)',
+      xlim=(0, 30), ylim=(25, 35))
+    days = [1, 5, 8, 12, 15, 19, 22, 26, 29]
+    temp = [29.3, 30.1, 30.4, 31.5, 32.3, 32.6, 31.8, 32.4, 32.7]
+    ax.plot(days, temp, color='green', linestyle='--', linewidth=3)
+    plt.show()
+```
+
+### `matplotlibrc` file
+
+- `matplotlib` uses all the settings specified in `matplotlibrc` file.
+- These settings are known as `rc settings` or `rc parameters`.
+- For customization, `rc settings` can be altered in the file or interactively.
+- The location of active `matplotlibrc` file used by `matplotlib` can be found with below expression.
+
+```py
+import matplotlib
+matplotlib.matplotlib_fname()
+```
+
+### Matplotlib rcParams
+
+- All `rc settings`, present in `matplotlibrc` file are stored in a dictionary named `matplotlib.rcParams`.
+- Any settings can be changed by editing values of this dictionary.
+- For example, if you want to change `linewidth` and `color`, the following expressions can be used.
+
+```py
+import matplotlib as mpl
+mpl.rcParams['lines.linewidth'] = 2
+mpl.rcParams['lines.color'] = 'r'
+```
+
+### Generate plot with styple
+
+```py
+with plt.style.context('ggplot'):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    
+    sepal_len = [5.01, 5.94, 6.59]
+    sepal_wd = [3.42, 2.77, 2.97]
+    petal_len = [1.46, 4.26, 5.55]
+    petal_wd = [0.24, 1.33, 2.03]
+    species = ['setosa', 'versicolor', 'viriginica']
+    species_index1 = [0.7, 1.7, 2.7]
+    species_index2 = [0.9, 1.9, 2.9]
+    species_index3 = [1.1, 2.1, 3.1]
+    species_index4 = [1.3, 2.3, 3.3]
+    
+    ax.bar(species_index1, sepal_len, width=0.2, label='Sepal Length')
+    ax.bar(species_index2, sepal_wd, width=0.2, edgecolor='black', label='Sepal Width')
+    ax.bar(species_index3, petal_len, width=0.2, edgecolor='black', label='Petal Length')
+    ax.bar(species_index4, petal_wd, width=0.2, edgecolor='black', label='Petal Width')
+
+    ax.set(title='Mean Measurements of Iris Species',
+          xlabel='Species', ylabel='Iris Measurements (cm)')
+
+    ax.set_xlim([0.5,3.7])
+    ax.set_ylim([0,10])
+
+    ax.set_xticks([1.1, 2.1, 3.1])
+    ax.set_xticklabels(['setosa', 'versicolor', 'viriginica'])
+
+    ax.legend()
+
+    plt.show()
+```
+
+```py
+with plt.style.context('seaborn-colorblind'):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    
+    sepal_len = [5.01, 5.94, 6.59]
+    sepal_wd = [3.42, 2.77, 2.97]
+    petal_len = [1.46, 4.26, 5.55]
+    petal_wd = [0.24, 1.33, 2.03]
+    species = ['setosa', 'versicolor', 'viriginica']
+    species_index1 = [0.7, 1.7, 2.7]
+    species_index2 = [0.9, 1.9, 2.9]
+    species_index3 = [1.1, 2.1, 3.1]
+    species_index4 = [1.3, 2.3, 3.3]
+    
+    ax.bar(species_index1, sepal_len, width=0.2, label='Sepal Length')
+    ax.bar(species_index2, sepal_wd, width=0.2, edgecolor='black', label='Sepal Width')
+    ax.bar(species_index3, petal_len, width=0.2, edgecolor='black', label='Petal Length')
+    ax.bar(species_index4, petal_wd, width=0.2, edgecolor='black', label='Petal Width')
+
+    ax.set(title='Mean Measurements of Iris Species',
+          xlabel='Species', ylabel='Iris Measurements (cm)')
+
+    ax.set_xlim([0.5,3.7])
+    ax.set_ylim([0,10])
+
+    ax.set_xticks([1.1, 2.1, 3.1])
+    ax.set_xticklabels(['setosa', 'versicolor', 'viriginica'])
+
+    ax.legend()
+
+    plt.show()
+```
+
+```py
+with plt.style.context('grayscale'):
+    fig = plt.figure(figsize=(8,6))
+    ax = fig.add_subplot(111)
+    
+    sepal_len = [5.01, 5.94, 6.59]
+    sepal_wd = [3.42, 2.77, 2.97]
+    petal_len = [1.46, 4.26, 5.55]
+    petal_wd = [0.24, 1.33, 2.03]
+    species = ['setosa', 'versicolor', 'viriginica']
+    species_index1 = [0.7, 1.7, 2.7]
+    species_index2 = [0.9, 1.9, 2.9]
+    species_index3 = [1.1, 2.1, 3.1]
+    species_index4 = [1.3, 2.3, 3.3]
+    
+    ax.bar(species_index1, sepal_len, width=0.2, label='Sepal Length')
+    ax.bar(species_index2, sepal_wd, width=0.2, edgecolor='black', label='Sepal Width')
+    ax.bar(species_index3, petal_len, width=0.2, edgecolor='black', label='Petal Length')
+    ax.bar(species_index4, petal_wd, width=0.2, edgecolor='black', label='Petal Width')
+
+    ax.set(title='Mean Measurements of Iris Species',
+          xlabel='Species', ylabel='Iris Measurements (cm)')
+
+    ax.set_xlim([0.5,3.7])
+    ax.set_ylim([0,10])
+
+    ax.set_xticks([1.1, 2.1, 3.1])
+    ax.set_xticklabels(['setosa', 'versicolor', 'viriginica'])
+
+    ax.legend()
+
+    plt.show()
+```
+
+
 
 # References
 - matplotib website: <https://matplotlib.org/>
