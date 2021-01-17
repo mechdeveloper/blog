@@ -375,7 +375,200 @@ ax.set_title("Cars Sold by Company 'X' in 2017")
 plt.show()
 ```
 
+## Bar Plot using `bar`
 
+### Common Parameters of 'bar'
+
+- `color`: Sets the color of bars.
+- `edgecolor`: Sets the color of the border line of bars.
+- `width`: Sets the width of bars
+- `align`: Aligns the bars w.r.t x-coordinates
+- `label`: Sets label to a bar, appearing in legend.
+
+```py
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales',
+      xlabel='Quarter', ylabel='Sales (in millions)')
+quarters = [1, 2, 3]
+sales_2017 = [25782, 35783, 36133]
+ax.bar(quarters, sales_2017)
+ax.set_xticks(quarters)
+ax.set_xticklabels(['Q1-2017', 'Q2-2017', 'Q3-2017'])
+plt.show()
+```
+
+- Draw `Red color bars` with `black edges`
+
+```py
+ax.bar(quarters, sales_2017, color='red', width=0.6, edgecolor='black')
+```
+
+```py
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales',
+      xlabel='Quarter', ylabel='Sales (in millions)')
+quarters = [1, 2, 3]
+sales_2017 = [25782, 35783, 36133]
+ax.bar(quarters, sales_2017, color='red', width=0.6, edgecolor='black')
+ax.set_xticks(quarters)
+ax.set_xticklabels(['Q1-2017', 'Q2-2017', 'Q3-2017'])
+plt.show()
+```
+
+### Plotting Multiple Groups
+
+```py
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales',
+      xlabel='Quarter', ylabel='Sales (in millions)')
+quarters = [1, 2, 3]
+x1_index = [0.8, 1.8, 2.8]; x2_index = [1.2, 2.2, 3.2]
+sales_2016 = [28831, 30762, 32178]; sales_2017 = [25782, 35783, 36133]
+ax.bar(x1_index, sales_2016, color='yellow', width=0.4, edgecolor='black', label='2016')
+ax.bar(x2_index, sales_2017, color='red', width=0.4, edgecolor='black', label='2017')
+ax.set_xticks(quarters)
+ax.set_xticklabels(['Q1', 'Q2', 'Q3'])
+ax.legend()
+plt.show()
+```
+
+### Barplot Using 'barh'
+
+- `barh` draws the bars horizontally as shown in above image.
+- `height` parameter is used to adjust the height of each bar.
+- `Horizontal` bar plots are used while comparing values of one category at a time.
+
+```py
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales',
+      xlabel='Sales (in millions)', ylabel='Quarter')
+quarters = [1, 2, 3]
+sales_2017 = [25782, 35783, 36133]
+ax.barh(quarters, sales_2017, height=0.6, color='red')
+ax.set_yticks(quarters)
+ax.set_yticklabels(['Q1-2017', 'Q2-2017', 'Q3-2017'])
+plt.show()
+```
+
+## Pie Plot
+
+```py
+fig = plt.figure(figsize=(6,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales')
+sales_2017 = [25782, 35783, 36133]
+ax.pie(sales_2017)
+plt.show()
+```
+
+### Common Parameters of 'pie'
+
+- `colors`: Sets the colors of portions.
+- `labels`: Sets the labels of portions.
+- `startangle`: Sets the start angle at which portion drawing starts.
+- `autopct`: Sets the percentage display format of an area, covering portions.
+
+```py
+fig = plt.figure(figsize=(6,6))
+ax = fig.add_subplot(111)
+ax.set(title='Avg. Quarterly Sales')
+sales_2017 = [25782, 35783, 36133]
+ax.pie(sales_2017)
+plt.show()
+```
+
+## Create Bar Plot iris sepal length
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+
+species = ['setosa', 'versicolor', 'viriginica']
+index = [0.2, 1.2, 2.2]
+sepal_len = [5.01, 5.94, 6.59]
+
+ax.bar(index, sepal_len, color='red', width=0.5, edgecolor='black')
+
+ax.set(title='Mean Sepal Length of Iris Species',
+      xlabel='Species', ylabel='Sepal Length (cm)')
+
+ax.set_xlim([0,3])
+ax.set_ylim([0,7])
+
+ax.set_xticks([ 0.45, 1.45, 2.45])
+ax.set_xticklabels(['setosa', 'versicolor', 'viriginica'])
+
+plt.show()
+```
+
+## Bar plot iris measurements
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111)
+
+sepal_len = [5.01, 5.94, 6.59]
+sepal_wd = [3.42, 2.77, 2.97]
+petal_len = [1.46, 4.26, 5.55]
+petal_wd = [0.24, 1.33, 2.03]
+species = ['setosa', 'versicolor', 'viriginica']
+species_index1 = [0.7, 1.7, 2.7]
+species_index2 = [0.9, 1.9, 2.9]
+species_index3 = [1.1, 2.1, 3.1]
+species_index4 = [1.3, 2.3, 3.3]
+
+ax.bar(species_index1, sepal_len, color='c', width=0.2, edgecolor='black', label='Sepal Length')
+ax.bar(species_index2, sepal_wd, color='m', width=0.2, edgecolor='black', label='Sepal Width')
+ax.bar(species_index3, petal_len, color='y', width=0.2, edgecolor='black', label='Petal Length')
+ax.bar(species_index4, petal_wd, color='orange', width=0.2, edgecolor='black', label='Petal Width')
+
+ax.set(title='Mean Measurements of Iris Species',
+      xlabel='Species', ylabel='Iris Measurements (cm)')
+
+ax.set_xlim([0.5,3.7])
+ax.set_ylim([0,10])
+
+ax.set_xticks([1.1, 2.1, 3.1])
+ax.set_xticklabels(['setosa', 'versicolor', 'viriginica'])
+
+ax.legend()
+
+plt.show()
+```
+
+## hbar plot of iris petal length
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(12,5))
+ax = fig.add_subplot(111)
+
+species = ['setosa', 'versicolor', 'viriginica']
+index = [0.2, 1.2, 2.2]
+petal_len = [1.46, 4.26, 5.55]
+
+ax.barh(index, petal_len, height=0.5, color='c', edgecolor='black')
+
+ax.set(title='Mean Petal Length of Iris Species',
+      xlabel='Petal Length (cm)', ylabel='Species')
+
+ax.set_yticks([0.45, 1.45, 2.45])
+ax.set_yticklabels(['setosa', 'versicolor', 'viriginica'])
+
+plt.show()
+```
 
 
 # References
