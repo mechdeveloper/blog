@@ -1,5 +1,5 @@
 ---
-title: How to Clean Docker Windows Server 2016 Host ?
+title: How to Clean Docker Windows Server 2016 OS Host ?
 date: 2021-01-19T12:36:14.090Z
 description: Many times we have requirement or we want to clean the docker
   windows server host to start docker services from a clean state. This article
