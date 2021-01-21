@@ -1,0 +1,60 @@
+---
+title: Windows Server Shortcuts | Increase your productivity on Windows Servers
+date: 2021-01-21T20:32:09.354Z
+description: "Useful day to day shortcuts for Windows Machines "
+---
+# Windows Shortcuts
+
+## Control Panel shortcuts | .cpl
+
+|      | Application                | Shortcut      |
+|------|----------------------------|---------------|
+|      | Network Connections        | ncpa.cpl      |
+|      | Programs and Features      | appwiz.cpl    |
+|      | Internet Properties        | inetcpl.cpl   |
+|      | System Properties          | sysdm.cpl     |
+|      | Firewall                   | firewall.cpl  |
+|      | Date and Time              | timedate.cpl  |
+|      | Region                     | intl.cpl      |
+
+## Microsoft Management Console (MMC) Shortcuts | .msc
+
+|      | Application                | Shortcut      |
+|------|----------------------------|---------------|
+|      | Computer Management                      | compmgmt.msc  |
+|      | Event Viewer                             | eventvwr.msc  |
+|      | Device Manager                           | devmgmt.msc   |
+|      | Performance Monitor                      | perfmon.msc   |
+|      | Services                                 | services.msc  |
+|      | Task Scheduler                           | taskschd.msc  |
+|      | Windows Defender Firewall with Advanced Security | wf.msc  |
+|      | Disk Management                          | diskmgmt.msc  |
+|      | Local Group Policy Editor                | gpedit.msc    |
+|      | Local Users and Groups                   | lusrmgr.msc   |
+|      | Local Security Policy                    | secpol.msc    |
+|      | Certificates Management - Local computer | certlm.msc    |
+|      | Certificates Management - Current user   | certmgr.msc   |
+|      | Component Services                       | comexp.msc    |
+|      | WMI Management                           | wmimgmt.msc   |
+|      | Shared Folders                           | fsmgmt.msc    |
+
+
+## Other Userful shortcut commands
+
+|      | Application                  | Shortcut      |
+|------|------------------------------|---------------|
+|      | System Configuration         | msconfig  |
+|      | System Information           | msinfo32  |
+|      | Control Panel                | control   |
+|      | About Windows                | winver    |
+|      | Remote Desktop Connection    | mstsc     |
+|      | Microsoft Management Console | mmc       |
+|      | Resource Monitor             | resmon    |
+|      | Registry Editor              | regedit   |
+|      | File Signature Verification  | sigverif  |
+|      | Windows Explorer             | explorer  |
+|      | Internet Explorer            | iexplore  |
+|      | Command Prompt               | cmd       |
+|      | Powershell                   | powershell |
+|      | Task manager                 | taskmgr    |
+|      | On screen Keyboard           | osk    |
