@@ -694,6 +694,637 @@ Output
 [1 5]
 ```
 
+### Indexing, Slicing, Iterating NumPy Arrays
+
+#### Indexing, Slicing a 1-D ndarray
+
+- Slicing refers to extracting a portion of existing array.
+- This can be achieved with a slice object.
+- A slice object is of the form ```start:end:step```. All three are optional.
+- Having only a single number inside square brackets refer to start index.
+
+Indexing
+
+- In python Array Index starts at 0 (fist element will have index 0)
+
+Slicing
+
+- ```arr[a:b]``` will slice the value effectively from index ```a``` upto ```b-1```
+
+Note: If we are making slice we are not making a copy from original we are working with actual array elements. To work with copy of an array use ```copy()``` method, For Eg: ```arr2= arr.copy()```
+
+```Python
+# Example: Slicing a 1-D array
+x = np.array([5, 10, 15, 20, 25, 30, 35])
+
+# 5  10  15  20  25  30  35  # Array Values
+# 0   1   2   3   4   5   6  # Array Index
+
+print('Array:', x)
+print('Array Length:', len(x)) # Array Length 
+print('Array Shape:', x.shape) # Array shape
+print('\n')
+print('Index 1:', x[1])  # Indexing 
+print('Index 6:', x[6])  # Indexing 
+print(x[1:6]) # Slicing 
+# Note this will give us the value upto index (6-1 = 5)
+
+print(x[1:6:2]) # Slicing Step 2
+print(x[1:6:3]) # Slicing Step 3
+```
+
+Output
+
+```Console
+Array: [ 5 10 15 20 25 30 35]
+Array Length: 7
+Array Shape: (7,)
+
+
+Index 1: 10
+Index 6: 35
+[10 15 20 25 30]
+[10 20 30]
+[10 25]
+```
+
+#### Indexing, Slicing a 2-D ndarray
+
+- Two ```slice objects```, one for each dimension, are required to slice a 2-D array.
+- They are separated by a ```comma (,)``` and having only a ```single slice``` object inside square brackets refers to first dimension.
+- All elements of a single dimension can be referred with a ```colon (:)```.
+
+```Python
+import numpy as np
+y = np.array([[0, 1, 2],
+              [3, 4, 5]])
+
+# Array Values
+# [0,1,2]  - Index 0
+# [3,4,5]  - Index 1
+
+print('Array:')
+print(y)
+print('Array Length:', len(y)) # Array Length 
+print('Array Shape:', y.shape) # Array shape
+print('\n')
+
+print('Index 0:', y[0]) 
+print('Index 1:', y[1]) 
+
+print('Index [0, 0]:', y[0,0]) # Index 0, Sub Index 0 
+print('Index [1, 1]:', y[1,1]) # Index 1, Sub Index 1
+
+print('\n')
+# Slice 1:2 Row 1 Item 2 = 4, Slice 1:3 Row 1 Item 3 = 5
+
+print('Array:')
+print(y)
+print('\n')
+
+print('Slice start:end')
+print('Slice: [:]')
+print(y[:]) 
+print('\n')
+
+print('Slice: [0:0]')
+print(y[0:0]) 
+print('\n')
+
+print('Slice: [0:1]')
+print(y[0:1]) 
+print('\n')
+
+print('Slice: [0:2]')
+print(y[0:2]) 
+print('\n')
+
+print('Slice: [0:3]')
+print(y[0:3]) 
+print('\n')
+
+
+print('Slice: [1:0]')
+print(y[1:0]) 
+print('\n')
+
+print('Slice: [1:1]')
+print(y[1:1]) 
+print('\n')
+
+print('Slice: [1:2]')
+print(y[1:2]) 
+print('\n')
+
+
+
+print('Array:')
+print(y)
+print('\n')
+
+print('Slice 2-D in a 2-D array:')
+print('Slice 2-D in a 2-D array: [start:end, start:end]')
+print('Slice [0:1, 0:1]:')
+print(y[0:1, 0:1]) 
+print('\n')
+
+print('Slice [0:1, 0:2]:')
+print(y[0:1, 0:2]) 
+print('\n')
+
+print('Slice [0:1, 0:3]:')
+print(y[0:1, 0:3]) 
+print('\n')
+
+
+print('Slice [1:2, 1:3]:')
+print(y[1:2, 1:3]) 
+print('\n')
+
+
+
+print('Array:')
+print(y)
+print('\n')
+
+print('All elements in single dimension are reffered with colon (:) ')
+print('Slice [:,0]:') # Column 0
+print(y[:, 0]) 
+print('\n')
+
+print('Slice [:,1]:') # Returns an array of Column 1 in 2D matrix
+print(y[:, 1]) 
+print('\n')
+
+
+print('Slice [:,2]:') # Returns an array of Column 2 in 2D matrix
+print(y[:, 2]) 
+print('\n')
+
+
+print('Slice [0,:]:') # Returns an array of Row 1 in 2D matrix
+print(y[0, :]) 
+print('\n')
+
+print('Slice [1,:]:') # Returns an array of Row 2 in 2D matrix
+print(y[1, :]) 
+print('\n')
+```
+
+Output
+
+```Console
+Array:
+[[0 1 2]
+ [3 4 5]]
+Array Length: 2
+Array Shape: (2, 3)
+
+
+Index 0: [0 1 2]
+Index 1: [3 4 5]
+Index [0, 0]: 0
+Index [1, 1]: 4
+
+
+Array:
+[[0 1 2]
+ [3 4 5]]
+
+
+Slice start:end
+Slice: [:]
+[[0 1 2]
+ [3 4 5]]
+
+
+Slice: [0:0]
+[]
+
+
+Slice: [0:1]
+[[0 1 2]]
+
+
+Slice: [0:2]
+[[0 1 2]
+ [3 4 5]]
+
+
+Slice: [0:3]
+[[0 1 2]
+ [3 4 5]]
+
+
+Slice: [1:0]
+[]
+
+
+Slice: [1:1]
+[]
+
+
+Slice: [1:2]
+[[3 4 5]]
+
+
+Array:
+[[0 1 2]
+ [3 4 5]]
+
+
+Slice 2-D in a 2-D array:
+Slice 2-D in a 2-D array: [start:end, start:end]
+Slice [0:1, 0:1]:
+[[0]]
+
+
+Slice [0:1, 0:2]:
+[[0 1]]
+
+
+Slice [0:1, 0:3]:
+[[0 1 2]]
+
+
+Slice [1:2, 1:3]:
+[[4 5]]
+
+
+Array:
+[[0 1 2]
+ [3 4 5]]
+
+
+All elements in single dimension are reffered with colon (:) 
+Slice [:,0]:
+[0 3]
+
+
+Slice [:,1]:
+[1 4]
+
+
+Slice [:,2]:
+[2 5]
+
+
+Slice [0,:]:
+[0 1 2]
+
+
+Slice [1,:]:
+[3 4 5]
+
+```
+
+#### Slicing Higher Dimensions ndarrays
+
+- For slicing an ```n``` dimensional ndarray, ```n``` slice objects are required.
+- Slice objects are separated by ,
+- Having only a single slice object refers to first dimension.
+
+```Python
+z = np.array([[[-1, 1], [-2, 2]],
+              [[-4, 4], [-5, 5]],
+              [[-7, 7], [-9, 9]]])
+
+
+print('Array:')
+print(z)
+print('Array Length:', len(z)) # Array Length 
+print('Array Shape:', z.shape) # Array shape
+print('\n')
+
+
+
+print('Indexing:  print elements at 0 1 2 index')
+print(z[0]) # print o index element
+print(z[1]) # print 1 index element
+print(z[2]) # print 2 index element
+
+print('Indexing:  print sub element 0 1 of element at 1 index')
+print(z[1, 0]) # print o index element
+print(z[1, 1]) # print 1 index element
+
+print('Indexing:  print subelement 0 1 of sub element 1 of element at 1 index')
+print(z[1, 1, 0]) # print o index element
+print(z[1, 1, 1]) # print 1 index element
+
+print('\n')
+print('Slicing:')
+
+print('Slicing: [:]')
+print(z[:])
+print('\n')
+
+print('Slicing: [start:end]')
+print('Slicing: [0:0]')
+print(z[0:0])
+print('\n')
+
+print('Slicing: [start:end]: Start at index 0: ')
+print('Slicing: [0:1]')
+print(z[0:1])
+print('\n')
+
+print('Slicing: [0:2]')
+print(z[0:2])
+print('\n')
+
+print('Slicing: [0:3]')
+print(z[0:3])
+print('\n')
+
+print('Slicing: [start:end]: Start at index 1: ')
+print('Slicing: [1:0]')
+print(z[1:0])
+print('\n')
+
+print('Slicing: [1:1]')
+print(z[1:1])
+print('\n')
+
+print('Slicing: [1:2]')
+print(z[1:2])
+print('\n')
+
+print('Slicing: [1:3]')
+print(z[1:3])
+print('\n')
+
+print('Slicing: [1:]')
+print(z[1:])
+print('\n')
+
+
+print('Slicing: [start:end:step]')
+print('Slicing: [0:3:2]')
+print(z[0:3:2])
+print('\n')
+
+
+
+print('Array:')
+print(z)
+print('Array Length:', len(z)) # Array Length 
+print('Array Shape:', z.shape) # Array shape
+print('\n')
+
+
+
+print('Slicing: 3-D')
+print('Slicing: [start:end, start:end, start:end]')
+
+print('Slicing: index 1 element in row of index 1: [1,:,1]')
+print(z[1,:,1]) # index 1 element in row of index 1
+
+print('Slicing: From all outer rows except the first, select 1st index element (which itself is an array) completely: [1:,1,:]')
+print(z[1:,1,:]) # From all outer rows except the first, select 1st index element (which itself is an array) completely.
+print('\n')
+
+print('Step1')
+print(z[1:])
+print('\n')
+
+print('Step2')
+print(z[1:,1])
+print('\n')
+
+print('Step3')
+print(z[1:,1,:])
+```
+
+Output
+
+```Console
+Array:
+[[[-1  1]
+  [-2  2]]
+
+ [[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+Array Length: 3
+Array Shape: (3, 2, 2)
+
+
+Indexing:  print elements at 0 1 2 index
+[[-1  1]
+ [-2  2]]
+[[-4  4]
+ [-5  5]]
+[[-7  7]
+ [-9  9]]
+Indexing:  print sub element 0 1 of element at 1 index
+[-4  4]
+[-5  5]
+Indexing:  print subelement 0 1 of sub element 1 of element at 1 index
+-5
+5
+
+
+Slicing:
+Slicing: [:]
+[[[-1  1]
+  [-2  2]]
+
+ [[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Slicing: [start:end]
+Slicing: [0:0]
+[]
+
+
+Slicing: [start:end]: Start at index 0: 
+Slicing: [0:1]
+[[[-1  1]
+  [-2  2]]]
+
+
+Slicing: [0:2]
+[[[-1  1]
+  [-2  2]]
+
+ [[-4  4]
+  [-5  5]]]
+
+
+Slicing: [0:3]
+[[[-1  1]
+  [-2  2]]
+
+ [[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Slicing: [start:end]: Start at index 1: 
+Slicing: [1:0]
+[]
+
+
+Slicing: [1:1]
+[]
+
+
+Slicing: [1:2]
+[[[-4  4]
+  [-5  5]]]
+
+
+Slicing: [1:3]
+[[[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Slicing: [1:]
+[[[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Slicing: [start:end:step]
+Slicing: [0:3:2]
+[[[-1  1]
+  [-2  2]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Array:
+[[[-1  1]
+  [-2  2]]
+
+ [[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+Array Length: 3
+Array Shape: (3, 2, 2)
+
+
+Slicing: 3-D
+Slicing: [start:end, start:end, start:end]
+Slicing: index 1 element in row of index 1: [1,:,1]
+[4 5]
+Slicing: From all outer rows except the first, select 1st index element (which itself is an array) completely: [1:,1,:]
+[[-5  5]
+ [-9  9]]
+
+
+Step1
+[[[-4  4]
+  [-5  5]]
+
+ [[-7  7]
+  [-9  9]]]
+
+
+Step2
+[[-5  5]
+ [-9  9]]
+
+
+Step3
+[[-5  5]
+ [-9  9]]
+```
+
+#### Iterating using 'for'
+
+- ```for``` loop can be used to iterate over every dimensional element.
+
+```Python
+x = np.array([[-1, 1], [-2, 2]])
+print('Array:\n', x, '\n')
+
+for row in x:
+    print('Row :',row)
+```
+
+Output
+
+```Console
+Array:
+ [[-1  1]
+ [-2  2]] 
+
+Row : [-1  1]
+Row : [-2  2]
+```
+
+#### Iterating using 'nditer'
+
+- ```nditer``` method of numpy creates an iterator, which enable accessing each element one after the other.
+
+```Python
+import numpy as np
+x = np.array([[0,1], [2, 3]])
+print('Array:\n', x, '\n')
+
+for a in np.nditer(x):
+    print(a)
+```
+
+Output
+
+```Console
+Array:
+ [[0 1]
+ [2 3]] 
+
+0
+1
+2
+3
+```
+
+#### Boolean Indexing
+
+- Checking if every element of an array satisfies a condition, results in a Boolean array.
+- This Boolean array can be used as index to filter elements that satisfy the condition.
+
+```Python
+import numpy as np
+x = np.arange(10).reshape(2,5)
+print('Array:\n', x, '\n')
+
+condition = x % 2 == 0
+print(condition)
+print('\n')
+print(x[condition])
+```
+
+Output
+
+```Console
+Array:
+ [[0 1 2 3 4]
+ [5 6 7 8 9]] 
+
+[[ True False  True False  True]
+ [False  True False  True False]]
+
+
+[0 2 4 6 8]
+```
 
 
 
