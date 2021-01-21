@@ -370,3 +370,160 @@ Output
  [90.5  92.45 89.25 94.5 ]]
 2 (3, 4)
 ```
+
+### Array Shape Manipulation
+
+#### Reshaping ndarrays
+
+Shape of an array can be changed using ```reshape```.
+
+```Python
+import numpy as np
+np.random.seed(100)
+
+x = np.random.randint(10, 100, 8)
+print(x, end='\n\n')
+
+y = x.reshape(2,4)
+print(y, end='\n\n')
+
+z = x.reshape(2,2,2)
+print(z, '\n\n')
+```
+
+Output
+
+```Console
+[18 34 77 97 89 58 20 62]
+
+[[18 34 77 97]
+ [89 58 20 62]]
+
+[[[18 34]
+  [77 97]]
+
+ [[89 58]
+  [20 62]]] 
+```
+
+#### Stacking arrays vertically
+
+- Two or more arrays can be joined vertically using the generic ```vstack``` method.
+
+```Python
+import numpy as np
+x = np.array([[-1, 1], [-3, 3]])
+y = np.array([[-2, 2], [-4, 4]])
+np.vstack((x,y))
+```
+
+Output
+
+```Console
+array([[-1,  1],
+       [-3,  3],
+       [-2,  2],
+       [-4,  4]])
+```
+
+#### Stacking arrays horizontally
+
+- Two or more arrays can be joined horizontally using the generic ```hstack``` method.
+
+```Python
+import numpy as np
+x = np.array([[-1, 1], [-3, 3]])
+y = np.array([[-2, 2], [-4, 4]])
+z = np.array([[-5, 5], [-6, 6]])
+np.hstack((x,y,z))
+```
+
+Output
+
+```Console
+array([[-1,  1, -2,  2, -5,  5],
+       [-3,  3, -4,  4, -6,  6]])
+```
+
+#### Splitting arrays vertically
+
+- Arrays can be split vertically using the generic ```vsplit``` method.
+- It is also possible to split at specific row numbers using ```vsplit```.
+
+```Python
+import numpy as np
+x = np.arange(30).reshape(6, 5)
+
+res = np.vsplit(x, 2)
+
+print(res[0], end='\n\n')
+
+print(res[1])
+```
+
+Output
+
+```Console
+[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
+
+[[15 16 17 18 19]
+ [20 21 22 23 24]
+ [25 26 27 28 29]]
+```
+
+```Python
+import numpy as np
+x = np.arange(30).reshape(6, 5)
+res = np.vsplit(x, (2, 5))
+
+print(res[0], end='\n\n')
+print(res[1], end='\n\n')
+print(res[2])
+```
+
+Output
+
+```Console
+[[0 1 2 3 4]
+ [5 6 7 8 9]]
+
+[[10 11 12 13 14]
+ [15 16 17 18 19]
+ [20 21 22 23 24]]
+
+[[25 26 27 28 29]]
+```
+
+#### Splitting arrays Horizontally
+
+- Arrays can be split horizontally using the generic ```hsplit``` method.
+
+```Python
+import numpy as np
+x = np.arange(10).reshape(2, 5)
+res = np.hsplit(x, (2,4))
+
+print(res[0], end='\n\n')
+print(res[1], end='\n\n')
+print(res[2])
+```
+
+Output
+
+```Console
+[[0 1]
+ [5 6]]
+
+[[2 3]
+ [7 8]]
+
+[[4]
+ [9]]
+```
+
+
+
+
+
