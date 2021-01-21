@@ -41,7 +41,7 @@ Output:
 31
 ```
 
-### Obtaining the slice = 'Jupyeter Notebooks'
+### Obtaining the slice = 'Jupyter Notebooks'
 
 ```Python
 s[11:28] # Returns substring ranging from 11th index to 27th index
@@ -56,9 +56,9 @@ Output:
 ### Determining no. of vovels in 's'
 
 ```Python
-vovels = ['a', 'e', 'i', 'o', 'u', #Press Enter to write in next line
+vowels = ['a', 'e', 'i', 'o', 'u', #Press Enter to write in next line
           'A', 'E', 'I', 'O', 'U']
-sum(1 for char in s if char in vovels)
+sum(1 for char in s if char in vowels)
 ```
 
 Output:
@@ -521,6 +521,177 @@ Output
 
 [[4]
  [9]]
+```
+
+### Basic Operations on NumPy Arrays
+
+#### Basic Operations with Scalars
+
+- Operations in Numpy are carried out element wise.
+- Hence the expression ```x + 10```, increases every element of array ```x``` by ```10```.
+
+```Python
+import numpy as np
+x = np.arange(6).reshape(2,3)
+print(x, end='\n\n')
+print(x + 10, end='\n\n')
+print(x * 3, end='\n\n')
+print(x % 2)
+```
+
+Output
+
+```Console
+[[0 1 2]
+ [3 4 5]]
+
+[[10 11 12]
+ [13 14 15]]
+
+[[ 0  3  6]
+ [ 9 12 15]]
+
+[[0 1 0]
+ [1 0 1]]
+```
+
+#### Basic Operations between Arrays
+
+- Operations between arrays also happen element wise.
+
+```Python
+import numpy as np
+x = np.array([[-1, 1], [-2, 2]])
+y = np.array([[4, -4], [5, -5]])
+
+print(x, end='\n\n')
+print(y, end='\n\n')
+print(x + y, end='\n\n')
+print(x * y)
+```
+
+Output
+
+```Console
+[[-1  1]
+ [-2  2]]
+
+[[ 4 -4]
+ [ 5 -5]]
+
+[[ 3 -3]
+ [ 3 -3]]
+
+[[ -4  -4]
+ [-10 -10]]
+```
+
+- It is also possible to perform operations on arrays with varying size and shape.
+- This is due ```Broadcasting``` feature exhibited by numpy arrays.
+
+```Python
+import numpy as np
+x = np.array([[-1, 1], [-2, 2]])
+y = np.array([-10, 10])
+print(x, end='\n\n')
+print(y, end='\n\n')
+print(x * y)
+```
+
+Output:
+
+```Console
+[[-1  1]
+ [-2  2]]
+
+[-10  10]
+
+[[10 10]
+ [20 20]]
+```
+
+#### Broadcasting in NumPy
+
+- Element wise operations between arrays are possible only when they have the same shape or compatible for Broadcasting.
+- Steps followed to verify the feasibility of Broadcasting between arrays are:
+  1. Initially, compare the dimensions of all arrays.
+  2. If dimensions do not match, prepend ```1's``` to shape of a smaller array so that it matches dimensions of a larger array.
+  3. Start comparing array shapes from the last dimension and move backward.
+  4. If the shape of both arrays are equal or either of it has a shape of ```1```, continue the comparison.
+  5. Else at any dimension, if step 4 fails, broadcasting between arrays is not feasible.
+- Finally, the resulted broadcasting array shape would be maximum of two compared shapes in each dimension.
+
+#### Feasibility of Broadcasting
+
+- Below examples show feasibility of broadcasting between two arrays, having shape s1 and s2 respectively.
+
+```txt
+Given: s1 = (4, 3); s2 = (3,)
+Step 1 and 2: s1 = (4, 3); s2 = (1, 3)
+Step 3 and 4: pass in 2 dimensions
+Result : Broadcasting feasible;
+         resulted array shape - (4,3) 
+```
+
+```txt
+Given: s1 = (5,); s2 = (5,4,3)
+Step 1 and 2: s1 = (1, 1, 5); s2 = (5, 4, 3)
+Step 3 and 4: fail in last dimension. ( 5 != 3)
+Result : Broadcasting not feasible. 
+```
+
+#### NumPy Universal Functions
+
+- Numpy provides a lot of mathematical functions, in the form of ```Universal functions```.
+- To know more on Universal functions, refer [this link](https://numpy.org/doc/stable/reference/ufuncs.html).
+
+```Python
+import numpy as np
+x = np.array([[0,1], [2,3]])
+print(x, end='\n\n')
+print(np.square(x), end='\n\n')
+print(np.sin(x))
+```
+
+Output
+
+```Console
+[[0 1]
+ [2 3]]
+
+[[0 1]
+ [4 9]]
+
+[[0.         0.84147098]
+ [0.90929743 0.14112001]]
+```
+
+#### NumPy Array Methods
+
+- Many of the universal functions are available as methods of ```ndarray``` class.
+- By default ```sum``` method adds all array elements.
+- It is also possible to apply ```sum``` method on elements of a specific dimension, using ```axis``` argument.
+
+```Python
+import numpy as np
+x = np.array([[0,1], [2, 3]])
+print(x, end='\n\n')
+print(x.sum(), end='\n\n')
+print(x.sum(axis=0), end='\n\n')
+print(x.sum(axis=1))
+```
+
+Output
+
+```Console
+[[0 1]
+ [2 3]]
+
+6
+
+[2 4]
+
+[1 5]
 ```
 
 
