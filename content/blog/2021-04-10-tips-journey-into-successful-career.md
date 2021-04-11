@@ -19,7 +19,7 @@ Create a Plan
 
 * Operating Systems
 
-  * Modern Operating System by Andrew S Stannen (Small version for Unix)
+  * Modern Operating System by Andrew S Tanenbaum (Small version for Unix)
 * DSA - Problem Solving 
 
   * Leetcode 
