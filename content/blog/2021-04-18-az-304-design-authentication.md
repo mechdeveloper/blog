@@ -70,3 +70,87 @@ On-premises integration
 Write back passwords to your on-premises directory?
 
 Allow users to unlock accounts without resetting their password?
+
+
+
+## Design Authentication 
+
+## Authentication vs Authorization 
+
+Authentication
+- __Authentication is who you are__
+  - User Id and password
+    - Strength of the password, policies
+  - Multi-Factor Authentication 
+    - Access to your email account, text message, etc
+  - Federation of identity to external services
+    - You trust someone else to authenticate someone for you
+
+Authorization 
+- __Authorization is you are allowed to perform an action__
+  - What level of access do you have?
+    - Read only
+      - Unable to change the resource only view access 
+    - Contributor
+      - you have full rights to start, stop, delete, create within that resource
+      - You cannot grant rights to other people
+    - Owner 
+      - Grant rights to other people
+      - Can create other owners and other contributors 
+  - Something else?
+  - How fine grained is that access?
+
+Azure Active Directory (Azure AD) is Azure's authentication service 
+  - Instead of building your own user and password management you can allow Azure AD to manage your users and passwords and you do not have to have that code.
+
+Key Features of Azure AD
+- Enforce sophisticated password complexity policies
+- Synchronizes with corporate Active Directory
+- Supports single sign on 
+- Multi-factor authentication options
+- Role-Based Access Control 
+- Can work with social media accounts for sign in (e.g. Facebook Connect)
+- Can support external partners access 
+
+
+## AD Synchronization 
+
+Single Sign On 
+
+Can synchronize with on-prem AD using "AD Connect"
+
+If the password changes, it supports the new password within minutes (every 15 minutes or so)
+
+If access is revoked, it's revoked everywhere
+
+
+## Protecting Authentication 
+
+Authentication Security 
+
+Internet Protocol Security - IPSec 
+- Security protocol that runs within the network stack 
+- Provides security at the IP Layer
+- Encrypting data packets 
+- Authentication Header (AH) - signing 
+- Lower level on the networking stack compared to application encryption or even TLS/SSL
+- Usually for VPNs
+
+Site-to-Site VPN 
+- Site-to-Site VPN is what you end up with when you have two network gateways connected to each other in a secure fashion
+
+Azure Virtual Network 
+  - VPN Gateway 
+    - Connects to On-Premises Network Gateway 
+
+Point to Site VPNs
+  - VPN Software to connect your laptop or remote device into corporate network 
+
+Site to Site VPNs
+  - Connect your entire networks together 
+  - Usually requires separate devices so the gateway on your on-premises is usually a physical hardware that you've purchased that supports it.
+
+MFA - Multi Factor Authentication 
+- MFA is a way of ensuring that somebody is who they say they are 
+- User Id and password in not enough for a secure system 
+- In Azure, when you use MFA users is going to approve/respond to  the signin via email, SMS, Notification on phone.
