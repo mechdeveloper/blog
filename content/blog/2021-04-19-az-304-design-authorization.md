@@ -1,5 +1,5 @@
 ---
-title: "AZ 304 - Design Authorization "
+title: "AZ 304 | Design Authorization "
 date: 2021-04-18T23:56:13.499Z
 description: AZ 304 - Design Authorization Notes
 ---
